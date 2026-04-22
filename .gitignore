@@ -1,0 +1,11 @@
+# Eclipse
+.metadata/
+*.log
+
+# Compiled files
+bin/
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db

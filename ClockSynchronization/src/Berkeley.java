@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Berkeley {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of nodes: ");
+        int n = sc.nextInt();
+
+        int[] time = new int[n];
+
+        System.out.println("Enter time for each node:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Node " + (i + 1) + ": ");
+            time[i] = sc.nextInt();
+        }
+
+        // Step 1: Calculate average time
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += time[i];
+        }
+        int avg = sum / n;
+        System.out.println("\nAverage time: " + avg);
+
+        // Step 2: Calculate adjustments
+        System.out.println("\nAdjustments for each node:");
+        for (int i = 0; i < n; i++) {
+            int diff = avg - time[i];
+            System.out.println("Node " + (i + 1) + " adjustment: " + diff);
+        }
+
+        // Step 3: Updated synchronized time
+        System.out.println("\nSynchronized time for each node:");
+        for (int i = 0; i < n; i++) {
+            time[i] = avg;
+            System.out.println("Node " + (i + 1) + ": " + time[i]);
+        }
+
+        sc.close();
+    }
+}
