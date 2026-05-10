@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>CORBA_Calculator</name>
+	<name>CORBACalculator</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1776891495117</id>
+			<id>1778442778136</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

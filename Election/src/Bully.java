@@ -13,22 +13,55 @@ public class Bully {
             process[i] = sc.nextInt();
         }
 
-        System.out.print("Enter process that detects failure: ");
+        System.out.print("Enter the process ID that detects coordinator failure: ");
         int initiator = sc.nextInt();
 
-        System.out.println("\nElection process started...\n");
+        System.out.println("\n");
+        System.out.println("         BULLY ELECTION ALGORITHM       ");
+        System.out.println("\n");
+        System.out.println("Election started by Process " + initiator);
 
-        int max = initiator;
+        int coordinator = initiator;
+
+        // Each process sends ELECTION to all higher processes
+        // Higher processes respond with OK and take over
         for (int i = 0; i < n; i++) {
-            if (process[i] > max) {
-                System.out.println("Process " + initiator 
-                                 + " sends message to " + process[i]);
-                max = process[i];
+            if (process[i] > coordinator) {
+
+                // current coordinator candidate sends ELECTION to higher process
+                System.out.println("\nProcess " + coordinator
+                        + " sends ELECTION to Process " + process[i]);
+
+                // higher process responds with OK
+                System.out.println("Process " + process[i]
+                        + " sends OK to Process " + coordinator);
+
+                // higher process takes over as new candidate
+                System.out.println("Process " + coordinator
+                        + " steps down. Process " + process[i]
+                        + " takes over the election.");
+
+                coordinator = process[i]; // new candidate
             }
         }
 
-        System.out.println("\nProcess " + max 
-                         + " becomes the new coordinator");
+        // Winner sends COORDINATOR message to all processes
+        System.out.println("\n");
+        System.out.println("Process " + coordinator
+                + " gets no response — it is the highest alive process.");
+        System.out.println("\nProcess " + coordinator
+                + " sends COORDINATOR message to all processes:");
+
+        for (int i = 0; i < n; i++) {
+            if (process[i] != coordinator) {
+                System.out.println("  COORDINATOR(" + coordinator
+                        + ") ──► Process " + process[i]);
+            }
+        }
+
+        System.out.println("\n");
+        System.out.println("  New Coordinator = Process " + coordinator);
+
         sc.close();
     }
 }

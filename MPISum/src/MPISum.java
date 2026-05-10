@@ -8,7 +8,7 @@ public class MPISum {
         int rank = MPI.COMM_WORLD.Rank();   // processor id
         int size = MPI.COMM_WORLD.Size();   // total processors
 
-        int N = 8;                          // total elements
+        int N = 17;                          // total elements
         int[] data = new int[N];
         int elementsPerProcess = N / size;
         int[] subArray = new int[elementsPerProcess];
@@ -44,6 +44,7 @@ public class MPISum {
         for (int i = 0; i < elementsPerProcess; i++) {
             localSum += subArray[i];
         }
+
         System.out.println("Process " + rank + " handles elements: "
             + java.util.Arrays.toString(subArray)
             + "  =>  Partial Sum = " + localSum);

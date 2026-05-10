@@ -1,4 +1,3 @@
-
 module CalculatorApp {
     interface Calculator {
         double add(in double a, in double b);
