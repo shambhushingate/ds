@@ -6,12 +6,12 @@ public class Server {
         try {
             HelloImpl obj = new HelloImpl();
 
-            // ✅ Create registry inside program
+            // Creates registry inside the program — no terminal command needed
             Registry registry = LocateRegistry.createRegistry(1099);
-
             registry.rebind("HelloService", obj);
 
             System.out.println("Server is running...");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,0 +1,61 @@
+```bash
+# Install Java 8
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+
+# Select Java 8
+sudo update-alternatives --config java
+
+# Check Java + IDL
+java -version
+idlj
+
+# Go to project src folder
+cd ~/eclipse-workspace/CORBACalculator/src
+
+# Generate IDL stubs
+idlj -fall Calculator.idl
+
+# Go to project root
+cd ~/eclipse-workspace/CORBACalculator
+
+# Create bin folder
+mkdir -p bin
+
+# Compile all files
+javac -d bin src/CalculatorImpl.java src/CalculatorServer.java src/CalculatorClient.java src/CalculatorApp/*.java
+
+# Start ORBD
+orbd -ORBInitialPort 1050 -ORBInitialHost localhost &
+
+# If port busy
+pkill -f orbd
+```
+
+### Eclipse Steps
+
+1. Create Java Project → `CORBACalculator`
+2. Use `JavaSE-1.8`
+3. Create files:
+
+   * `Calculator.idl`
+   * `CalculatorImpl.java`
+   * `CalculatorServer.java`
+   * `CalculatorClient.java`
+4. Refresh Project (F5)
+5. Right click `CalculatorApp` → Build Path → Use as Source Folder
+6. Project → Clean
+
+### Run Order
+
+1. Start `orbd`
+2. Run `CalculatorServer`
+3. Run `CalculatorClient`
+
+### Program Arguments (Server + Client)
+
+```bash
+-ORBInitialPort 1050 -ORBInitialHost localhost
+```
+
+Source: 

@@ -1,0 +1,36 @@
+STEP 1 — Create Project in Eclipse
+1. Open Eclipse
+
+2. File → New → Java Project
+   → Project name: RMIProject
+   → Click Finish
+
+3. Right-click on src folder
+
+STEP 2 — Create All 4 Files in Eclipse
+Right-click src → New → Class → Name: Hello      → Finish → paste code
+Right-click src → New → Class → Name: HelloImpl  → Finish → paste code
+Right-click src → New → Class → Name: Server     → Finish → paste code (fixed)
+Right-click src → New → Class → Name: Client     → Finish → paste code
+
+STEP 3 — Run Server First
+1. In Eclipse, open Server.java
+
+2. Right-click anywhere in Server.java
+   → Run As
+   → Java Application
+
+3. Check Console tab at bottom:
+   Should print: "Server is running..."
+
+4. KEEP THIS RUNNING — do not stop it
+
+STEP 4 — Run Client (Without Stopping Server)
+1. Open Client.java in Eclipse
+
+2. Right-click anywhere in Client.java
+   → Run As
+   → Java Application
+
+3. Check Console tab:
+   Should print: "Hello from Server!"

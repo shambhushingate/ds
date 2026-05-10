@@ -1,0 +1,93 @@
+```bash
+# Install MPI
+sudo apt update
+sudo apt install openmpi-bin libopenmpi-dev -y
+
+# Download MPJ Express
+wget https://sourceforge.net/projects/mpjexpress/files/latest/download -O mpjexpress.zip
+
+# Unzip
+unzip mpjexpress.zip -d ~/mpjexpress
+
+# Set Environment Variables
+nano ~/.bashrc
+```
+
+Add these lines at bottom:
+
+```bash
+export MPJ_HOME=~/mpjexpress
+export PATH=$MPJ_HOME/bin:$PATH
+export CLASSPATH=$MPJ_HOME/lib/mpj.jar:$CLASSPATH
+```
+
+```bash
+# Apply changes
+source ~/.bashrc
+
+# Verify
+echo $MPJ_HOME
+ls $MPJ_HOME/lib/mpj.jar
+```
+
+# Eclipse Steps
+
+```text
+1. Open Eclipse
+2. File → New → Java Project
+3. Project Name → MPISum
+4. Finish
+
+5. Right Click Project
+   → Build Path
+   → Configure Build Path
+
+6. Libraries
+   → Add External JARs
+   → ~/mpjexpress/lib/mpj.jar
+   → Apply and Close
+
+7. Create Class:
+   MPISum.java
+```
+
+# Compile
+
+```bash
+# Go to src folder
+cd ~/eclipse-workspace/MPISum/src
+
+# Compile
+javac -cp $MPJ_HOME/lib/mpj.jar MPISum.java
+
+# Check class file
+ls *.class
+```
+
+# Run
+
+```bash
+# Run with 4 processes
+mpjrun.sh -np 4 MPISum
+
+# If not working
+$MPJ_HOME/bin/mpjrun.sh -np 4 MPISum
+```
+
+# If Error
+
+```bash
+# Permission fix
+chmod +x $MPJ_HOME/bin/mpjrun.sh
+
+# Reload bashrc
+source ~/.bashrc
+```
+
+# Run Order
+
+```text
+1. Compile MPISum.java
+2. Run mpjrun.sh command
+3. Output will display process rank and sum
+```
