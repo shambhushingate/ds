@@ -15,3 +15,13 @@ source ~/.bashrc
 javac -cp $MPJ_HOME/lib/mpj.jar MPISum.java
 
 6. mpjrun.sh -np 4 MPISum
+
+
+
+
+=========abhay=============
+
+export MPJ_HOME=~/Downloads/mpj-v0_44
+export PATH=$PATH:$MPJ_HOME/bin
+
+mpjrun.sh -np 4 DistributedSum
