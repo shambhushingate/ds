@@ -24,3 +24,14 @@ http://localhost:8080/CalculatorWebService/CalculatorWS?wsdl
 6. Clean & Build CalculatorClient
 
 7. Run CalculatorClient
+
+
+====weather====
+
+Run WeatherWebService
+WeatherWebService → Clean and Build
+↓
+Check WSDL URL
+http://localhost:8080/WeatherWebService/WeatherWS?wsdl
+↓
+Run WeatherClient
