@@ -1,0 +1,26 @@
+1. Open both projects
+
+2. Start GlassFish
+Services
+→ Servers
+→ GlassFish Server
+→ Right Click
+→ Start
+
+3. Clean & Build CalculatorWebService
+
+4. Deploy CalculatorWebService
+
+5. Check ?wsdl URL
+http://localhost:8080/CalculatorWebService/CalculatorWS?wsdl
+
+If client gives errors:
+Right Click Project
+→ New
+→ Web Service Client
+WSDL URL:
+http://localhost:8080/CalculatorWebService/CalculatorWS?wsdl
+
+6. Clean & Build CalculatorClient
+
+7. Run CalculatorClient
