@@ -1,7 +1,7 @@
 import CalculatorApp.*;
 import org.omg.CORBA.*;
 
-public class CalculatorImpl extends CalculatorPOA {
+public class CalculatorImpl extends CalculatorPOA { //Extends the generated server skeleton 
 
     public double add(double a, double b) {
         System.out.println("Server: add(" + a + ", " + b + ")");
@@ -24,3 +24,6 @@ public class CalculatorImpl extends CalculatorPOA {
         return a / b;
     }
 }
+
+
+//CalculatorPOA is the Portable Object Adapter skeleton generated from IDL.

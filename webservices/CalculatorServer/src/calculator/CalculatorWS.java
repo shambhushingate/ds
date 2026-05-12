@@ -3,10 +3,10 @@ package calculator;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-@WebService
+@WebService //Converts class into SOAP web service.
 public class CalculatorWS {
 
-    @WebMethod
+    @WebMethod //Makes methods accessible remotely.
     public int add(int a, int b) {
         return a + b;
     }
@@ -29,3 +29,35 @@ public class CalculatorWS {
         return a / b;
     }
 }
+
+
+
+
+
+
+
+
+
+/*This file contains the actual business logic of the calculator application.
+
+It provides services like:
+
+Addition
+Subtraction
+Multiplication
+Division
+
+to remote clients through SOAP web service.
+
+Main Functions
+Defines web service methods
+Processes client requests
+Returns results to client
+Important Annotations
+@WebService
+
+Converts class into SOAP web service.
+
+@WebMethod
+
+Makes methods accessible remotely.*/

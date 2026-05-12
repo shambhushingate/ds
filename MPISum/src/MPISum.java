@@ -8,7 +8,7 @@ public class MPISum {
         int rank = MPI.COMM_WORLD.Rank();   // processor id
         int size = MPI.COMM_WORLD.Size();   // total processors
 
-        int N = 17;                          // total elements
+        int N = 16;                          // total elements
         int[] data = new int[N];
         int elementsPerProcess = N / size;
         int[] subArray = new int[elementsPerProcess];
@@ -30,7 +30,7 @@ public class MPISum {
                 System.out.println("Master: Sent elements to Process " + i);
             }
 
-            // Copy its own part
+            // Master Copy its own part, starting part of array
             System.arraycopy(data, 0, subArray, 0, elementsPerProcess);
 
         } else {

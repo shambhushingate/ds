@@ -7,7 +7,7 @@ import java.util.HashMap;
 @WebService
 public class StudentWS {
 
-    HashMap<Integer, String> students =
+    HashMap<Integer, String> students = //Stores student records in key-value format.
             new HashMap<Integer, String>();
 
     @WebMethod

@@ -26,7 +26,7 @@ public class Ring {
         System.out.println("\n Phase 1: ELECTION Message Passing \n");
 
         int maxID = process[initiator];
-        int current = (initiator + 1) % n; // start from next node
+        int current = (initiator + 1) % n; // Moves to next process in circular ring.
 
         // initiator sends its ID first
         System.out.println("Process " + process[initiator]
@@ -41,7 +41,7 @@ public class Ring {
                 maxID = process[current]; // replace with own higher ID
             }
 
-            int next = (current + 1) % n;
+            int next = (current + 1) % n; //Message forwarded to next process in ring.
 
             if (next == initiator) {
                 // last node sends back to initiator

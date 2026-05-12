@@ -1,4 +1,4 @@
-module CalculatorApp {
+module CalculatorApp {         IDL = Interface Definition Language
     interface Calculator {
         double add(in double a, in double b);
         double subtract(in double a, in double b);
